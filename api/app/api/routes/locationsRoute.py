@@ -3,7 +3,7 @@ from typing import List
 from fastapi import APIRouter
 
 from app.api.domains.locations import locationController
-from app.api.domains.locations.schema import LocationInfoRes, NewLocationReq
+from app.api.domains.locations.schema import DeleteLocationRes, LocationInfoRes, NewLocationReq
 
 locations_router = APIRouter()
 
@@ -22,9 +22,15 @@ def get_locations() -> list[LocationInfoRes]:
 def new_location(payload: NewLocationReq) -> LocationInfoRes:
     res = locationController.create_location(payload.name)
     return LocationInfoRes(
-        id=res.id,
-        name=res.name,
-        temperature=res.temperature,
-        rainfall=res.rainfall,
-        weather_code=res.weather_code,
+        id=res.id, name=res.name, temperature=res.temperature, rainfall=res.rainfall, weather_code=res.weather_code,
+    )
+
+
+@locations_router.delete("/{id}", response_model=DeleteLocationRes)
+def delete_location(id) -> DeleteLocationRes:
+    id, name, message = locationController.delete_location(id)
+    return DeleteLocationRes(
+        id=id,
+        name=name,
+        message=message,
     )

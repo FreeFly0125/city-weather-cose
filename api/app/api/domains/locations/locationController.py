@@ -8,7 +8,6 @@ def get_all_location_info():
     return all_info
 
 
-
 def create_location(name: str):
     [latitude, longitude] = locationDetail.data[name]
 
@@ -19,3 +18,7 @@ def create_location(name: str):
     )
 
     return result
+
+
+def delete_location(id: int):
+    return locationService.remove(id)
