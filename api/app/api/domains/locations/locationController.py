@@ -9,7 +9,7 @@ def get_all_location_info():
 
 
 def create_location(name: str):
-    [latitude, longitude] = locationDetail.data[name]
+    [_, latitude, longitude] = locationDetail.data[name]
 
     weather_info = openmeteo.get_current_weather(latitude, longitude)
 

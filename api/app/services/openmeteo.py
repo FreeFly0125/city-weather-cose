@@ -17,3 +17,17 @@ def get_current_weather(latitude, longitude):
     weather_info = response[0].Current().Variables
 
     return weather_info
+
+
+def get_weekly_forecast(latitude, longitude):
+    params = {
+        "latitude": latitude,
+        "longitude": longitude,
+        "daily": ["weather_code", "temperature_2m_min", "temperature_2m_max"],
+    }
+
+    response = openmeteo.weather_api(url=url, params=params)
+
+    forecast_info = response[0].Daily()
+
+    return forecast_info.Variables
