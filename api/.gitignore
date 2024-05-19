@@ -1,0 +1,5 @@
+__pycache__
+.vscode
+.env
+.cache.sqlite
+.ruff_cache
