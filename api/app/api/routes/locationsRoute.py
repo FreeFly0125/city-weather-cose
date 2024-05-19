@@ -3,7 +3,7 @@ from typing import List
 from fastapi import APIRouter
 
 from app.api.domains.locations import locationController
-from app.api.domains.locations.schema import LocationInfoRes
+from app.api.domains.locations.schema import LocationInfoRes, NewLocationReq
 
 locations_router = APIRouter()
 
@@ -16,3 +16,15 @@ def get_locations() -> list[LocationInfoRes]:
         for res in result
     ]
     return all_info
+
+
+@locations_router.post("/", response_model=LocationInfoRes)
+def new_location(payload: NewLocationReq) -> LocationInfoRes:
+    res = locationController.create_location(payload.name)
+    return LocationInfoRes(
+        id=res.id,
+        name=res.name,
+        temperature=res.temperature,
+        rainfall=res.rainfall,
+        weather_code=res.weather_code,
+    )
