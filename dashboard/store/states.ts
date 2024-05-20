@@ -4,6 +4,7 @@ export interface RootState {
     citiesState: CityClimatInfo[];
     forecastState: WeekelyForecastInfo;
     isShowSidebar: boolean;
+    isShowModal: boolean;
 }
 
 export const state: RootState = {
@@ -14,4 +15,5 @@ export const state: RootState = {
         forecast_info: [],
     },
     isShowSidebar: false,
+    isShowModal: true,
 };

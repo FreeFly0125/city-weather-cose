@@ -5,6 +5,15 @@
                 <div class="text-white-800">
                     <h2 class="text-2xl font-bold mb-4">Add Location</h2>
                 </div>
+                <div class="text-white-800">                            
+                    <button class="text-gray-200" @click="visibilityModal">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
             </div>
 
             
@@ -39,8 +48,6 @@
 import { mapActions } from 'vuex';
 import store from '~/store';
 
-
-
 export default {
     data() {
         return {
@@ -49,13 +56,16 @@ export default {
     },
 
     methods: {
-        ...mapActions(['createLocation']),
+        ...mapActions(['createLocation', 'changeVisibilityModal']),
         insertNewLocation() {
             if (this.locationName.trim()) {
                 store.dispatch('createLocation', this.locationName);
                 this.locationName = '';
             }
         },
+        visibilityModal() {
+            store.dispatch('changeVisibilityModal', false);
+        }
     },
 };
 </script>

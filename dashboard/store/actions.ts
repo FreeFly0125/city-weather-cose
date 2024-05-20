@@ -29,4 +29,10 @@ export const actions: ActionTree<RootState, RootState> = {
             const server_url = 'http://localhost:8000/forecast';
         } catch (e) {}
     },
+    async changeVisibilityModal({ commit }, flag: boolean) {
+        commit('VISIBLE_MODAL', flag);
+    },
+    async changeVisibilitySidebar({ commit }, flag: boolean) {
+        commit('VISIBLE_SIDEBAR', flag);
+    },
 };

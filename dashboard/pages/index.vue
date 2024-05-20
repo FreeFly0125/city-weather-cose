@@ -2,6 +2,7 @@
 import store from '~/store';
 
 const isShowSidebar = computed(() => store.state.isShowSidebar);
+const isShowModal = computed(() => store.state.isShowModal);
 
 </script>
 
@@ -10,7 +11,7 @@ const isShowSidebar = computed(() => store.state.isShowSidebar);
         <Headerbar />
         <div class="w-full h-[calc(100vh-112px)] items-center justify-center">
             <Mainboard />
-            <NewLocationModal />
+            <NewLocationModal v-if="isShowModal" />
         </div>
         <Sidebar v-if="isShowSidebar"/>
     </div>

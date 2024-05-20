@@ -14,4 +14,12 @@ export const mutations: MutationTree<RootState> = {
     FORECAST_CLIMATE(state: RootState, info: WeekelyForecastInfo) {
         state.forecastState = info;
     },
+
+    VISIBLE_MODAL(state: RootState, flag: boolean) {
+        state.isShowModal = flag;
+    },
+
+    VISIBLE_SIDEBAR(state: RootState, flag: boolean) {
+        state.isShowSidebar = flag;
+    }
 };
