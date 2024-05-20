@@ -6,7 +6,6 @@ import axios from 'axios';
 export const actions: ActionTree<RootState, RootState> = {
     async createLocation({ commit }, name: string) {
         try {
-            console.log("Button Clicked");
             const server_url = 'http://localhost:8000/locations';
             const body = { name: name };
             const newLocationRes = await axios.post<CityClimatInfo>(server_url, body);

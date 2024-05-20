@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import store from '~/store';
+
+const isShowSidebar = computed(() => store.state.isShowSidebar);
 
 </script>
 
@@ -7,7 +10,8 @@
         <Headerbar />
         <div class="w-full h-[calc(100vh-112px)] items-center justify-center">
             <Mainboard />
+            <NewLocationModal />
         </div>
-        <Sidebar />
+        <Sidebar v-if="isShowSidebar"/>
     </div>
 </template>
