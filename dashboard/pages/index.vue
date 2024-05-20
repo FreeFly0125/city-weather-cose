@@ -3,7 +3,11 @@
 </script>
 
 <template>
-    <div class="w-screen h-screen flex items-center justify-center">
-        <h1 class="text-6xl">Good luck! 👋</h1>
+    <div class="w-full h-full bg-gray-950 px-48">
+        <Headerbar />
+        <div class="w-full h-[calc(100vh-112px)] items-center justify-center">
+            <Mainboard />
+        </div>
+        <Sidebar />
     </div>
 </template>
