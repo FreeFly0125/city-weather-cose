@@ -4,7 +4,7 @@
             <p class="text-4xl">Locations</p>
         </div>
         <div class="flex items-center">
-            <button class="bg-cyan-100 text-gray-950 text-xl px-6 py-4 rounded-lg hover:bg-cyan-800">+ Add Location</button>
+            <button @click="visibilityModal" class="bg-cyan-100 text-gray-950 text-xl px-6 py-4 rounded-lg hover:bg-cyan-800">+ Add Location</button>
         </div>
     </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -44,3 +44,17 @@
         </table>
     </div>
 </template>
+
+<script>
+import { mapActions } from 'vuex';
+import store from '~/store';
+
+export default {
+    methods: {
+        ...mapActions(['changeVisibilityModal']),
+        visibilityModal() {
+            store.dispatch('changeVisibilityModal', true);
+        }
+    },
+};
+</script>
